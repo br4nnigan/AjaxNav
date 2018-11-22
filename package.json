@@ -1,0 +1,28 @@
+{
+  "name": "AjaxNav",
+  "version": "1.0.0",
+  "description": "ajaxify links",
+  "main": "src/AjaxNav.js",
+  "scripts": {
+    "postinstall": "browserify src/AjaxNav.js > dist/AjaxNav.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/br4nnigan/AjaxNav.git"
+  },
+  "author": "laz.brannigan@gmail.com",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/br4nnigan/AjaxNav/issues"
+  },
+  "homepage": "https://github.com/br4nnigan/AjaxNav#readme",
+  "dependencies": {
+    "Static.js": "gist:b6454cf8fe004ee9f0264aa301007202",
+    "css-transition": "github:br4nnigan/css-transition",
+    "hammerjs": "^2.0.8",
+    "promise-polyfill": "^6.0.2"
+  },
+  "devDependacies": {
+    "browserify": "^16.2.2"
+  }
+}
