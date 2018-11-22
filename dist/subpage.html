@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<nav>
+	<a href="demo.html">home</a>
+	<a href="subpage.html" class="active">page 1</a>
+</nav>
+
+<div id="main">
+
+	<p>This is a sub page.</p>
+
+</div>
+
+<script type="text/javascript" src="AjaxNav.js"></script>
+<script type="text/javascript">
+	/*
+		css properties for fading in the new dom
+		"p" in this case is the selector
+		"0" are the properties to start with
+		"1" are the properties to transition to
+		"duration" is the duration of the transition in ms
+	*/
+	var fadeOutProps = {
+		 "p": {
+			1: { transform: "translateX(-50px)", opacity: 0 },
+			duration: 300
+		 }
+	}
+	var fadeInProps = {
+		 "p": {
+			0: { transform: "translateX(50px)", opacity: 0 },
+			1: { transform: "translateX(0px)", opacity: 1 },
+			duration: 300
+		 }
+	}
+	var navItems = document.querySelectorAll("nav > a");
+	var onAfterChange = function ( href ) {
+
+		for (var i = 0; i < navItems.length; i++) {
+
+			if ( navItems[i].getAttribute("href") == href ) {
+
+				navItems[i].classList.add( "active" );
+			} else {
+				navItems[i].classList.remove( "active" );
+			}
+		}
+	}
+
+	var options = {
+		items: navItems, // all links that are supposed to be ajaxified
+		selector: "#main", // selector of the dom part to be exchanged
+		bindHistory: true, // react to when user uses browser back/forward buttons
+		onBeforeLoad: null, // callback function before href is loaded
+		onBeforeChange: null, // callback function before dom was changed
+		onAfterChange: onAfterChange, // callback function before dom will be changed
+		fadeImages: true, // fade in images of loaded page on image load
+		fadeOutProps: fadeOutProps, // fade in the new dom
+		fadeInProps: fadeInProps, // fade out the old dom
+		fadeProps: {}, // combined fadeIn/fadeOut props, will reverse for fade out
+	}
+	var ajaxNav = new AjaxNav( options );
+</script>
+
+
+</body>
+</html>
