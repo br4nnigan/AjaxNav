@@ -1,6 +1,6 @@
 var Hammer = require("hammerjs");
-var HttpUtils = require("../util/Static").http;
 var Static = require("../util/Static");
+var HttpUtils = Static.http;
 var DomUtils = Static.dom;
 var transition = require("css-transition");
 var promise = require("promise-polyfill");
